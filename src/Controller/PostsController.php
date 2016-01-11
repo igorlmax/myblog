@@ -23,7 +23,22 @@ class PostsController extends AppController {
 		die('This is post ' . $id);
 	}
 	
-	public function Edit($id) {
+	public function edit($id) {
 		die('Editing post ' . $id);
+	}
+	
+	// Get the name from the url name="John"
+	public function hello() {
+		//die("hello " . $this->request['url']['name']);
+		//print_r($this->request->query);
+		/*
+		if ($this->request->is('post')){
+			die('This is POST');
+		} elseif ($this->request->is('get')){
+			die('This is Get');
+		}
+		die();
+		*/
+		die($this->request->header('User-Agent'));
 	}
 }

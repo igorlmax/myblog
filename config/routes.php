@@ -25,6 +25,17 @@ Router::scope('/posts', function($routes){
 			['controller' => 'Posts', 'action' => 'edit'],
 			['id' => '\d+', 'pass' => ['id']]
 			);
+	
+	$routes->connect('/hello',
+			['controller' => 'Posts', 'action' => 'hello']
+			);
+});
+
+// Adding Admin prefix
+
+Router::prefix('admin', function($routes){
+	$routes->connect('/', ['controller' => 'Dashboard']);
+	$routes->connect('/create', ['controller' => 'Posts', 'action' => 'create']);
 });
 
 Router::scope('/', function ($routes) {
